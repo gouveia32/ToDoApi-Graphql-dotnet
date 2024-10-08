@@ -1,19 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using todoApi.src.Database.Domain;
+using ToDoApi.src.Database.Domain;
 
-namespace todoApi.src.Database
+namespace ToDoApi.src.Database
 {
-    public class ToDoContext : DbContext
+    public class TodoContext : DbContext
     {
-        public ToDoContext(DbContextOptions options) : base(options)
+        public TodoContext(DbContextOptions options) : base(options)
         {            
         }
 
-        public DbSet<Todo> Tasks { get; set; }     
+        public DbSet<Todo> Tasks { get; set; }
     }
-
 }

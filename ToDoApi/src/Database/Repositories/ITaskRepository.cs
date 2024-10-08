@@ -1,10 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using todoApi.src.Database.Domain;
+using ToDoApi.src.Database.Domain;
 
-namespace todoApi.src.Database.Repositories
+namespace ToDoApi.src.Database.Repositories
 {
     public interface ITaskRepository
     {
