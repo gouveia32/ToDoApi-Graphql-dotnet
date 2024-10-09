@@ -1,19 +1,20 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
-using Microsoft.EntityFrameworkCore;
-using ToDoApi.src.Database;
+namespace ToDoApi
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services
-    .AddDbContext<ToDoContext>(option => option.UseInMemoryDatabase("TodoDatabase"));
-builder.Services
-    .AddGraphQLServer();
-
-var app = builder.Build();
-
-app.MapGraphQL();
-
-app.MapGet("/", () => "Hello World!");
-
-app.Run();
-
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
+}
